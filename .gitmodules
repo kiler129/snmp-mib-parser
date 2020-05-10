@@ -1,0 +1,7 @@
+[submodule "net-snmp"] # 5.7.3 from Debian
+	path = net-snmp
+	url = https://salsa.debian.org/debian/net-snmp.git
+	shallow = true
+	branch = master
+	ignore = shallow
+	shallow = true

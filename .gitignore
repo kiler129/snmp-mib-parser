@@ -1,0 +1,23 @@
+################ ENVIRONMENT ################
+### macOS ###
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+._*
+.AppleDB
+.AppleDesktop
+
+### PHP-related files ###
+/phpunit.xml
+/build/
+/composer.phar
+/vendor/
+composer.lock
+
+examples/native-tree
+
+
+### InteliJ ###
+.idea/
