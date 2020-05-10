@@ -2,7 +2,7 @@
 <?php
 declare(strict_types=1);
 /*
- * This file contains a simplest PHP source code to print the OID tree in console
+ * This file contains a simple PHP source code to print the OID tree in console
  *
  * Usage:
  *  ./tree.php 'SNMPv2-MIB::system'
