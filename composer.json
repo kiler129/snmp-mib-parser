@@ -1,0 +1,28 @@
+{
+    "name": "noflash/snmp-mib-parser",
+    "description": "A true SNMP MIB parser based on real Net-SNMP library",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {
+        "php-64bit": "^7.4.0"
+    },
+    "require-dev": {
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "NoFlash\\MibParser\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NoFlash\\MibParser\\Tests\\": "tests/"
+        }
+    }
+}
