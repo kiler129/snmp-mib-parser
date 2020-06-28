@@ -4,7 +4,7 @@ This directory contains useful examples built around the library's API.
 
 ---
 ### [`tree.c`](tree.c)
-Contains the simplest C source code to print the OID tree in console, like `snmptranslate` does.
+Contains the simplest C source code to print the OID tree in the console, like `snmptranslate` does.
 
 You don't need to worry about that file (i.e. compile it nor use.). It's provided for reference only to compare 
 implementations. The `print_mib_tree()` used there, as you probably can see, doesn't allow for any information 
@@ -43,7 +43,7 @@ chmod +x native-tree
 
 ---
 ### [`tree.php`](tree.php)
-The file contains a simple (yet vistually pleasing ;)) PHP source code to print the OID tree in console.
+The file contains a simple (yet virtually pleasing ;)) PHP source code to print the OID tree in console.
 
 ![php example](../.github/tree-example.png)
 
