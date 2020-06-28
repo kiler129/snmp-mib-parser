@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace NoFlash\MibParser\Snmp;
 
-use NoFlash\MibParser\DTO\IntegerSet;
+use NoFlash\MathSet\DTO\IntegerSet;
 
 final class TreeNode
 {

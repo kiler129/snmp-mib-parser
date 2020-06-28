@@ -3,9 +3,11 @@
     "description": "A true SNMP MIB parser based on real Net-SNMP library",
     "type": "library",
     "license": "MIT",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable" : true,
     "require": {
-        "php-64bit": "^7.4.0"
+        "php-64bit": "^7.4.0",
+        "noflash/math-set": "dev-master"
     },
     "require-dev": {
     },
