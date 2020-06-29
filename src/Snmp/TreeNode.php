@@ -68,7 +68,7 @@ final class TreeNode
     /**
      * List of children (if any)
      *
-     * @var NodeType[]
+     * @var TreeNode[]
      */
     public array $children = [];
 
@@ -105,7 +105,7 @@ final class TreeNode
     }
 
     /**
-     * @return NodeType[]
+     * @return TreeNode[]
      */
     public function getChildren(): array
     {
