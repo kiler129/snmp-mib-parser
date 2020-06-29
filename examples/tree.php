@@ -65,6 +65,8 @@ function printNodeRecursively(TreeNode $node, int $level = 0): void
         $extraInfo[] = '📝' . $node->txtConvention;
     }
 
+    $extraInfo[] = 'NT=' . $node->getType();
+
     if (isset($extraInfo[0])) {
         printf(" \e[3m(%s)\e[0m", \implode(', ', $extraInfo)); //Make extras italic
     }
