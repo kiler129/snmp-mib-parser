@@ -25,9 +25,10 @@ class NetSnmpException extends RuntimeException
     static public function create(int $code, ?string $message = null, ?\Throwable $previous = null): NetSnmpException
     {
         if (isset(self::EXCEPTION_MAP[$code])) {
-            return new (self::EXCEPTION_MAP[$code])($message, $previous);
+            $fqcn = self::EXCEPTION_MAP[$code];
+            return new $fqcn($message, $previous);
         }
 
-        return new (self::class)($message, $code, $previous);
+        return new NetSnmpException($message, $code, $previous);
     }
 }
