@@ -17,11 +17,11 @@ class TreeBuilder
         $this->ffiBridge = $ffiBridge;
     }
 
-    public function buildFromOid(string $oid): TreeNode
+    public function buildFromOid(string $oid, int $maxDepth = self::DEFAULT_MAX_DEPTH): TreeNode
     {
         [$oid, $oidLen] = $this->ffiBridge->getOidByName($oid);
 
-        return $this->buildNode($this->ffiBridge->getSubtree($oid, $oidLen));
+        return $this->buildNode($this->ffiBridge->getSubtree($oid, $oidLen), $maxDepth);
     }
 
     private function buildNode(\FFI\CData $tree, int $ttl = self::DEFAULT_MAX_DEPTH): TreeNode
