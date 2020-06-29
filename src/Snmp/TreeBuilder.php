@@ -17,16 +17,19 @@ class TreeBuilder
         $this->ffiBridge = $ffiBridge;
     }
 
-    public function buildFromOid(string $oid, int $maxDepth = self::DEFAULT_MAX_DEPTH): TreeNode
+    public function buildFromOid(string $oid, int $maxDepth = \PHP_INT_MAX): TreeNode
     {
         [$oid, $oidLen] = $this->ffiBridge->getOidByName($oid);
 
         return $this->buildNode($this->ffiBridge->getSubtree($oid, $oidLen), $maxDepth);
     }
 
-    private function buildNode(\FFI\CData $tree, int $ttl = self::DEFAULT_MAX_DEPTH): TreeNode
-    {
-        if ($ttl <= 0) {
+    private function buildNode(
+        \FFI\CData $tree,
+        int $softHeapLimit = \PHP_INT_MAX,
+        int $hardHeapLimit = self::DEFAULT_MAX_DEPTH
+    ): TreeNode {
+        if ($hardHeapLimit <= 0) {
             throw new HeapTooDeepException('Too many nesting levels while processing tree');
         }
 
@@ -39,8 +42,15 @@ class TreeBuilder
             $this->fillLeafNode($tree, $node);
         }
 
+
+        //Soft heap limit IGNORES anything below certain depth, while hard heap limit ensures we don't consume huge
+        // amounts of memory with very deep (or most likely looped) trees
+        if (--$softHeapLimit < 0) {
+            return $node;
+        }
+
         for ($ntp = $tree->child_list; $ntp !== null; $ntp = $ntp->next_peer) {
-            $node->addFirstChild($this->buildNode($ntp, $ttl - 1));
+            $node->addFirstChild($this->buildNode($ntp, $softHeapLimit, $hardHeapLimit - 1));
         }
 
         return $node;
